@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3930422855336884827}
   - component: {fileID: 5104326736650097314}
   - component: {fileID: 7509943292734910044}
+  - component: {fileID: 4572691580635581847}
+  - component: {fileID: 3381703338237600956}
   m_Layer: 0
   m_Name: side table
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2661404738979737713}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -93.54099, y: 3.568, z: 26.694912}
   m_LocalScale: {x: 34.70582, y: 34.64306, z: 29.74688}
   m_ConstrainProportionsScale: 0
@@ -35,7 +37,7 @@ Transform:
   - {fileID: 4182946561336397620}
   - {fileID: 706288433077082813}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3930422855336884827
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -117,6 +119,54 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8660585401945686418, guid: 6f6edf8f77086204ab090942c27800c2, type: 3}
+--- !u!114 &4572691580635581847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661404738979737713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb303e61e50e6d4c8e897d8acf70f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  interactionLinkedObject: {fileID: 9109342421799485842}
+  interactionPrompt: Use
+  interactionType: 1
+  openAngle: 90
+  rotationDoorSpeed: 90
+  rotationAxis: {x: 0, y: 1, z: 0}
+  isBoxLid: 0
+  slideDistance: 0.016
+  moveingDrawerSpeed: 1
+  slideDirection: {x: 0, y: -1, z: 0}
+  notesImgs: []
+  notesPanel: {fileID: 0}
+  noteIndex: 0
+  puzzlePanel: {fileID: 0}
+  interactionUIText: {fileID: 0}
+--- !u!65 &3381703338237600956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661404738979737713}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.01, z: 0.02}
+  m_Center: {x: 0, y: -0.03, z: 0.002}
 --- !u!1 &5862299494702760223
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +178,6 @@ GameObject:
   - component: {fileID: 706288433077082813}
   - component: {fileID: 8342546726203241557}
   - component: {fileID: 1851128294673475033}
-  - component: {fileID: 1432056247648842275}
   m_Layer: 0
   m_Name: drawer1
   m_TagString: Untagged
@@ -209,27 +258,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1432056247648842275
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5862299494702760223}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.019443415, y: 0.020181727, z: 0.006244914}
-  m_Center: {x: 0, y: -0.0012406153, z: -0.0037953218}
 --- !u!1 &9109342421799485842
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +287,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000000019073486, y: 0, z: 0.012576656}
-  m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 1.4622039}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9205498794250453270}
