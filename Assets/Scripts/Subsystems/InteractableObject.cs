@@ -50,12 +50,14 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     [Header("Additional References")]
     private PlayerInteract playerInteract;
+    private DialogueTrigger dialogueTrigger;
 
-    public enum InteractableType { Door, Drawer, Note, Puzzle, Generic }//tell what type of interaction this object has
+    public enum InteractableType { Door, Drawer, Note, Puzzle, NPC, Generic }//tell what type of interaction this object has
 
     private void Start()
     {
         playerInteract = GameObject.FindWithTag("Player").GetComponent<PlayerInteract>();
+        dialogueTrigger = GetComponent<DialogueTrigger>();
 
         InitializeUI();
         InitializeDoor();
@@ -172,6 +174,10 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 break;
             case InteractableType.Generic:
                 HandleGenericInteraction();
+                break;
+            case InteractableType.NPC:
+                // Trigger dialogue or NPC interaction here
+                dialogueTrigger?.TriggerDialogue();
                 break;
         }
     }
