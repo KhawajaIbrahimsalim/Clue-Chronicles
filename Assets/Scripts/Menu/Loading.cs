@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Loading : MonoBehaviour
@@ -19,7 +20,10 @@ public class Loading : MonoBehaviour
         {
             progress += 0.1f;
             loadingBar.value = progress;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
         }
+
+
+        SceneManager.LoadScene("GamePlay");
     }
 }

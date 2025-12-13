@@ -32,11 +32,11 @@ public class PlayerInteract : MonoBehaviour
 
     private void Update()
     {
-        // // Optional: Add keyboard interaction support
-        // if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
-        // {
-        //     PerformInteraction();
-        // }
+        // Optional: Add keyboard interaction support
+        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
+        {
+            PerformInteraction();
+        }
     }
 
     private void SetCurrentInteractable(IInteractable interactable)
