@@ -77,6 +77,7 @@ public class PlayerInteract : MonoBehaviour
         if (currentInteractable != null)
         {
             PerformInteraction();
+            HideInteractionUI();
         }
     }
 

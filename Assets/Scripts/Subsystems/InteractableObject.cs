@@ -52,6 +52,9 @@ public class InteractableObject : MonoBehaviour, IInteractable
     private PlayerInteract playerInteract;
     private DialogueTrigger dialogueTrigger;
 
+    [Header("Objective Properties")]
+    public bool IsInteracted;
+
     public enum InteractableType { Door, Drawer, Note, Puzzle, NPC, Generic }//tell what type of interaction this object has
 
     private void Start()
@@ -179,6 +182,12 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 // Trigger dialogue or NPC interaction here
                 dialogueTrigger?.TriggerDialogue();
                 break;
+        }
+
+        if (!IsInteracted)
+        {
+            IsInteracted = true;
+            // Notify objective manager or other systems about the interaction
         }
     }
 

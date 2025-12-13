@@ -6,53 +6,49 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance;
 
     private DialogueData current;
-    private int index = 0;
-    private Coroutine endDialogueCoroutine;
+    private int index;
+    private bool active;
 
     void Awake()
     {
         Instance = this;
     }
 
+    public bool IsActive => active;
+
     public void StartDialogue(DialogueData data)
     {
         current = data;
         index = 0;
+        active = true;
 
-        ShowLine();
-
-        // Stop the previous coroutine if it's running
-        if (endDialogueCoroutine != null)
-        {
-            StopCoroutine(endDialogueCoroutine);
-        }
-
-        // Start a new coroutine to end the dialogue after a delay
-        endDialogueCoroutine = StartCoroutine(EndDialogueAfterDelay(5f));
+        DialogueUI.Instance.Show(
+            current.lines[index].speaker,
+            current.lines[index].text
+        );
     }
 
     public void NextLine()
     {
+        if (!active) return;
+
         index++;
 
         if (index >= current.lines.Length)
         {
-            endDialogueCoroutine = StartCoroutine(EndDialogueAfterDelay(0f));
+            EndDialogue();
             return;
         }
 
-        ShowLine();
-    }
-
-    void ShowLine()
-    {
         var line = current.lines[index];
         DialogueUI.Instance.Show(line.speaker, line.text);
+
+        Debug.Log($"DialogueManager: NextLine to index {index}");
     }
 
-    IEnumerator EndDialogueAfterDelay(float delay)
+    void EndDialogue()
     {
-        yield return new WaitForSeconds(delay);
+        active = false;
         DialogueUI.Instance.Hide();
     }
 }
