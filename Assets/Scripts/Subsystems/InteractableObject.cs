@@ -184,10 +184,11 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 break;
         }
 
-        if (!IsInteracted)
+        if (!IsInteracted && InteractableType.Door != interactionType && InteractableType.Drawer != interactionType)
         {
             IsInteracted = true;
             // Notify objective manager or other systems about the interaction
+            ChapterController.Instance.AdvanceObjective();
         }
     }
 
