@@ -1,0 +1,10 @@
+# ninja log v5
+61	9244	7890811043926875	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	c502a6722aa262a0
+51	9273	7890811044169324	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	898a0a8bdf5ca3a1
+31	9303	7890811045234943	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	fa6b1350ac6ac209
+1	9568	7890811047719121	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	85460f2a3859f18c
+41	10196	7890811054213871	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	d557a6bf0070d648
+21	10523	7890811057527958	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	39f1714a3fe4d4a4
+9256	11857	7890811071069947	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	6322a9753704fec7
+9274	12487	7890811077407068	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	7d48f8c9ff7ddf60
+12559	12754	7890811080130941	E:/Game Dev/Produce Games/Clue Chronicles/Clue-Chronicles/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/42251495/obj/armeabi-v7a/libgame.so	cad5cb0558905184
