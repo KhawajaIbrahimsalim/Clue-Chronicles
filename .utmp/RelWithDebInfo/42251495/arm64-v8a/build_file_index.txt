@@ -1,0 +1,2 @@
+E:\Game Dev\Produce Games\Clue Chronicles\Clue-Chronicles\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+E:\Game Dev\Produce Games\Clue Chronicles\Clue-Chronicles\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

@@ -32,7 +32,9 @@ public class MeshCombiner : MonoBehaviour
         targetMeshFilter.sharedMesh = mesh;
         mesh.name = "CombinedMesh";
 
+#if UNITY_EDITOR
         AssetDatabase.CreateAsset(mesh, "Assets/CombinedMesh.asset");
+#endif
 
         Debug.Log("Combined mesh created, vertex count = " + mesh.vertexCount);
     }
