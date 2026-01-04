@@ -1,0 +1,1 @@
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\11929o5t\obj\armeabi-v7a

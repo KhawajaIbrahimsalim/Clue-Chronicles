@@ -1,0 +1,17 @@
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\GAToUnityCallbacks.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroEnd.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroHeaderBegin.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroSourceBegin.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAApplication.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAConfiguration.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UGADebug.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAEvents.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAInput.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UGASoftKeyboard.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UGASoftKeyboardCallbacks.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UGATypes.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAVersion.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGACallbacks.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAConfigurationCallbacks.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAKeyEventCallbacks.h
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAMotionEventCallbacks.h

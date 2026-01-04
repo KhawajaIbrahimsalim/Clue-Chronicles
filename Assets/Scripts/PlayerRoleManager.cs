@@ -29,12 +29,12 @@ public class PlayerRoleManager : NetworkBehaviour
     void EnableController()
     {
         GetComponent<ThirdPersonController>().enabled = true;
-        OperatorUI.Instance?.DisableUI();
+        UISetter.Instance?.DisableUI();
     }
 
     void EnableOperator()
     {
         GetComponent<ThirdPersonController>().enabled = false;
-        OperatorUI.Instance?.EnableUI(false);
+        UISetter.Instance?.EnableUI(false);
     }
 }

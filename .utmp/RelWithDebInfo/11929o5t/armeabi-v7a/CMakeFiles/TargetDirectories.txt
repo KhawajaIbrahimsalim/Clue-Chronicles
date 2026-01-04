@@ -1,0 +1,5 @@
+D:/HDD Primary Storage/Projects/Unity Projects/Clue Chronicles/.utmp/RelWithDebInfo/11929o5t/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/HDD Primary Storage/Projects/Unity Projects/Clue Chronicles/.utmp/RelWithDebInfo/11929o5t/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/HDD Primary Storage/Projects/Unity Projects/Clue Chronicles/.utmp/RelWithDebInfo/11929o5t/armeabi-v7a/GameActivity/CMakeFiles/game.dir
+D:/HDD Primary Storage/Projects/Unity Projects/Clue Chronicles/.utmp/RelWithDebInfo/11929o5t/armeabi-v7a/GameActivity/CMakeFiles/edit_cache.dir
+D:/HDD Primary Storage/Projects/Unity Projects/Clue Chronicles/.utmp/RelWithDebInfo/11929o5t/armeabi-v7a/GameActivity/CMakeFiles/rebuild_cache.dir

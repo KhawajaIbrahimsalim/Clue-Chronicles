@@ -1,0 +1,2 @@
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+D:\HDD Primary Storage\Projects\Unity Projects\Clue Chronicles\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

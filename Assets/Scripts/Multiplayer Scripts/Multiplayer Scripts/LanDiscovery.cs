@@ -179,7 +179,31 @@ public class LanDiscovery : MonoBehaviour
         Debug.Log($"✅ Connected to game! ID: {clientId}");
         UpdateStatus("✅ Connected! Loading game...");
         isConnecting = false;
+        
+        // SIMPLIFIED: Just wait for scene to load without subscribing
+        // The client will automatically load whatever scene the host loads
+        UpdateStatus("✅ Connected! Waiting for host to start game...");
     }
+
+// Remove or comment out the OnSceneLoaded method if not needed
+
+    // FIX: Correct signature for OnLoadComplete
+    // void OnSceneLoaded(ulong clientId, string sceneName, LoadSceneMode loadSceneMode)
+    // {
+    //     // Check if this scene load is for us
+    //     if (clientId == NetworkManager.Singleton.LocalClientId || clientId == 0)
+    //     {
+    //         Debug.Log($"📁 Client loaded scene: {sceneName}");
+    //         UpdateStatus($"Loaded: {sceneName}");
+            
+    //         if (sceneName == "GamePlay")
+    //         {
+    //             // Hide discovery UI
+    //             if (gameObject != null)
+    //                 gameObject.SetActive(false);
+    //         }
+    //     }
+    // }
 
     void OnClientDisconnected(ulong clientId)
     {
@@ -211,6 +235,8 @@ public class LanDiscovery : MonoBehaviour
         UpdateStatus("Refreshing active games...");
     }
 
+    
+// Also add cleanup in OnDestroy
     void OnDestroy()
     {
         client?.Close();

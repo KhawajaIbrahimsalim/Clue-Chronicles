@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Netcode;
 
-public class InteractableObject : MonoBehaviour, IInteractable
+public class InteractableObject : NetworkBehaviour, IInteractable
 {
     [Header("Interaction Settings")]
     [SerializeField] private GameObject interactionLinkedObject;
     [SerializeField] private string interactionPrompt = "Use";
     [SerializeField] private InteractableType interactionType = InteractableType.Generic;
     [SerializeField, Tooltip("Check only if you using for a box lid")] private bool isBoxLid = false;
-    //[SerializeField] private AudioSource audioSource;
-
+    
     [Header("Interaction/Door Settings")]
     [SerializeField] private float openAngle = 90f;
     [SerializeField] private float rotationDoorSpeed = 90f;
@@ -24,26 +24,21 @@ public class InteractableObject : MonoBehaviour, IInteractable
     private bool isInitialized = false;
 
     [Header("Interaction/Drawer Settings")]
-    [SerializeField] private float slideDistance = 0.5f; // Default drawer slide distance
+    [SerializeField] private float slideDistance = 0.5f;
     [SerializeField] private float moveingDrawerSpeed = 1f;
-    [SerializeField] private Vector3 slideDirection = Vector3.forward; // Usually forward for drawers
-    // [SerializeField] private AudioClip drawerOpenSound;
-    // [SerializeField] private AudioClip drawerCloseSound;
+    [SerializeField] private Vector3 slideDirection = Vector3.forward;
 
     private Vector3 closedPosition;
     private Vector3 openPosition;
 
     [Header("Interaction/Note Settings")]
-    [SerializeField] private List<Image> notesImgs = new List<Image>();//move to another script later
+    [SerializeField] private List<Image> notesImgs = new List<Image>();
     [SerializeField] private GameObject notesPanel;
     [SerializeField] private int noteIndex = 0;
-    //[SerializeField] private AudioClip noteOpenSound;
-    //[SerializeField] private AudioClip noteCloseSound;
 
     [Header("Interaction/Puzzle Settings")]
     [SerializeField] private GameObject puzzlePanel;
-    //[SerializeField] private AudioClip puzzleOpenSound;
-    //[SerializeField] private AudioClip puzzleCloseSound;
+    private NetworkVariable<bool> isPuzzleActive = new NetworkVariable<bool>(false);
 
     [Header("UI References")]
     [SerializeField] private TMP_Text interactionUIText;
@@ -55,7 +50,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     [Header("Objective Properties")]
     public bool IsInteracted;
 
-    public enum InteractableType { Door, Drawer, Note, Puzzle, NPC, Generic }//tell what type of interaction this object has
+    public enum InteractableType { Door, Drawer, Note, Puzzle, NPC, Generic }
 
     private void Start()
     {
@@ -65,6 +60,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
         InitializeUI();
         InitializeDoor();
         InitializeDrawer();
+
+        isPuzzleActive.OnValueChanged += OnPuzzleStateChanged;
     }
     
     private void Update()
@@ -83,7 +80,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
     }
 
-    private void InitializeUI() //set the interaction prompt text on UI
+    private void InitializeUI()
     {
         if (interactionUIText != null)
         {
@@ -96,13 +93,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         if (interactionType == InteractableType.Door && interactionLinkedObject != null)
         {
-            // Store the initial closed rotation
             closedRotation = interactionLinkedObject.transform.localRotation;
-
-            // Calculate the open rotation
             openRotation = closedRotation * Quaternion.Euler(rotationAxis * openAngle);
-
-            Debug.Log($"Door initialized. Closed: {closedRotation.eulerAngles}, Open: {openRotation.eulerAngles}");
             isInitialized = true;
         }
     }
@@ -111,22 +103,15 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         if (interactionType == InteractableType.Drawer && interactionLinkedObject != null)
         {
-            // Store the initial closed position
             closedPosition = interactionLinkedObject.transform.localPosition;
-            
-            // Calculate the open position
-            // Transform the direction from local to world space, then back to local
             Vector3 localSlideDirection = interactionLinkedObject.transform.TransformDirection(slideDirection.normalized);
             localSlideDirection = interactionLinkedObject.transform.InverseTransformDirection(localSlideDirection);
             openPosition = closedPosition + localSlideDirection * slideDistance;
-            
-            Debug.Log($"Drawer initialized. Closed: {closedPosition}, Open: {openPosition}");
-            Debug.Log($"Slide direction (world): {interactionLinkedObject.transform.TransformDirection(slideDirection.normalized)}");
             isInitialized = true;
         }
         else if (interactionType == InteractableType.Drawer && interactionLinkedObject == null)
         {
-            Debug.LogError("No linked object assigned for drawer! Assign the drawer GameObject.");
+            Debug.LogError("No linked object assigned for drawer!");
         }
     }
 
@@ -173,13 +158,21 @@ public class InteractableObject : MonoBehaviour, IInteractable
                 HandleNoteInteraction();
                 break;
             case InteractableType.Puzzle:
-                HandlePuzzleInteraction();
+                if (NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsHost)
+                {
+                    // Client requests to open puzzle
+                    RequestShowPuzzleServerRpc();
+                }
+                else if (NetworkManager.Singleton.IsHost)
+                {
+                    // Host can directly control
+                    ShowPuzzleForClient();
+                }
                 break;
             case InteractableType.Generic:
                 HandleGenericInteraction();
                 break;
             case InteractableType.NPC:
-                // Trigger dialogue or NPC interaction here
                 dialogueTrigger?.TriggerDialogue();
                 break;
         }
@@ -187,34 +180,98 @@ public class InteractableObject : MonoBehaviour, IInteractable
         if (!IsInteracted && InteractableType.Door != interactionType && InteractableType.Drawer != interactionType)
         {
             IsInteracted = true;
-            // Notify objective manager or other systems about the interaction
-            ChapterController.Instance.AdvanceObjective();
+            if (ChapterController.Instance != null)
+                ChapterController.Instance.AdvanceObjective();
         }
     }
 
-
-    //* Specific interaction handlers
-    /// <summary>
-    /// Add dialogue or sound effects later and get the function to play sound and show dialogue for their respective
-    /// Manager scripts.
-    /// </summary>
-
-    /// <summary>
-    /// Starts door interaction (toggles open/close state)
-    /// </summary>
-    private void HandleDoorInteraction()
+    private void OnPuzzleStateChanged(bool oldValue, bool newValue)
     {
-        if (!isInitialized)
+        if (puzzlePanel != null)
         {
-            InitializeDoor();
+            puzzlePanel.SetActive(newValue);
+            Debug.Log($"Puzzle panel state changed: {newValue} (IsClient: {NetworkManager.Singleton.IsClient}, IsHost: {NetworkManager.Singleton.IsHost})");
         }
-        
-        if (interactionLinkedObject == null)
+    }
+
+    // ===== HOST BUTTON METHODS =====
+    // Call this from the host's UI button
+    public void HostOpenPuzzleForClient()
+    {
+        if (!NetworkManager.Singleton.IsHost)
         {
-            Debug.LogError("No linked object assigned for door!");
+            Debug.Log("❌ Only host can call this!");
             return;
         }
+        
+        Debug.Log("👑 Host button clicked - showing puzzle for client");
+        ShowPuzzleForClient();
+    }
 
+    private void ShowPuzzleForClient()
+    {
+        if (IsServer)
+        {
+            isPuzzleActive.Value = true;
+        }
+    }
+
+    private void HidePuzzleForClient()
+    {
+        if (IsServer)
+        {
+            isPuzzleActive.Value = false;
+        }
+    }
+
+    // Client requests host to show puzzle
+    [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
+    private void RequestShowPuzzleServerRpc()
+    {
+        Debug.Log($"📡 Client requested puzzle");
+        isPuzzleActive.Value = true;
+    }
+
+    // Client requests host to hide puzzle
+    [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
+    private void RequestHidePuzzleServerRpc()
+    {
+        isPuzzleActive.Value = false;
+    }
+
+    // Call this from host's UI button to close puzzle
+    public void HostClosePuzzleOnClient()
+    {
+        if (!NetworkManager.Singleton.IsHost) return;
+        
+        Debug.Log("👑 Host hiding puzzle from client");
+        HidePuzzleForClient();
+    }
+
+    // ===== EXISTING METHODS (UPDATED) =====
+
+    public void ClosePuzzleInteraction()
+    {
+        if (interactionType == InteractableType.Puzzle)
+        {
+            if (NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsHost)
+            {
+                // Client requests host to hide puzzle
+                RequestHidePuzzleServerRpc();
+            }
+            else if (NetworkManager.Singleton.IsHost)
+            {
+                // Host can directly hide
+                HidePuzzleForClient();
+            }
+        }
+    }
+
+    private void HandleDoorInteraction()
+    {
+        if (!isInitialized) InitializeDoor();
+        if (interactionLinkedObject == null) return;
+        
         if (!isMoving)
         {
             isOpen = !isOpen;
@@ -223,62 +280,45 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
     }
 
-    /// <summary>
-    /// Handles the actual door rotation animation
-    /// </summary>
     private void HandleSwingingDoor()
     {
         if (interactionLinkedObject == null) return;
 
         if (isOpen)
         {
-            // Opening door - rotate towards open position
             interactionLinkedObject.transform.localRotation = Quaternion.RotateTowards(
                 interactionLinkedObject.transform.localRotation,
                 openRotation,
                 rotationDoorSpeed * Time.deltaTime
             );
 
-            // Check if we've reached the open position
             if (Quaternion.Angle(interactionLinkedObject.transform.localRotation, openRotation) < 1f)
             {
                 interactionLinkedObject.transform.localRotation = openRotation;
                 isMoving = false;
-                //PlaySound(closeSound);
             }
         }
         else if (!isBoxLid)
         {
-            // Closing door - rotate towards closed position
             interactionLinkedObject.transform.localRotation = Quaternion.RotateTowards(
                 interactionLinkedObject.transform.localRotation,
                 closedRotation,
                 rotationDoorSpeed * Time.deltaTime
             );
 
-            // Check if we've reached the closed position
             if (Quaternion.Angle(interactionLinkedObject.transform.localRotation, closedRotation) < 1f)
             {
                 interactionLinkedObject.transform.localRotation = closedRotation;
                 isMoving = false;
-                //PlaySound(openSound);
             }
         }
     }
 
     private void HandleDrawerInteraction()
     {
-        if (!isInitialized)
-        {
-            InitializeDrawer();
-        }
+        if (!isInitialized) InitializeDrawer();
+        if (interactionLinkedObject == null) return;
         
-        if (interactionLinkedObject == null)
-        {
-            Debug.LogError("No linked object assigned for drawer!");
-            return;
-        }
-
         if (!isMoving)
         {
             isOpen = !isOpen;
@@ -293,7 +333,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
         if (isOpen)
         {
-            // Opening drawer - move towards open position
             interactionLinkedObject.transform.localPosition = Vector3.MoveTowards(
                 interactionLinkedObject.transform.localPosition, 
                 openPosition, 
@@ -304,13 +343,11 @@ public class InteractableObject : MonoBehaviour, IInteractable
             {
                 interactionLinkedObject.transform.localPosition = openPosition;
                 isMoving = false;
-                //PlaySound(drawerOpenSound);
                 Debug.Log("Drawer fully opened");
             }
         }
         else if (!isBoxLid)
         {
-            // Closing drawer - move towards closed position
             interactionLinkedObject.transform.localPosition = Vector3.MoveTowards(
                 interactionLinkedObject.transform.localPosition, 
                 closedPosition, 
@@ -321,7 +358,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
             {
                 interactionLinkedObject.transform.localPosition = closedPosition;
                 isMoving = false;
-                //PlaySound(drawerCloseSound);
                 Debug.Log("Drawer fully closed");
             }
         }
@@ -329,9 +365,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     private void HandleNoteInteraction()
     {
-        // Add note-specific logic here
         notesPanel.SetActive(true);
-        //PlaySound(noteOpenSound);
         OpenNote();
     }
     
@@ -352,33 +386,17 @@ public class InteractableObject : MonoBehaviour, IInteractable
         }
     }
     
-    public void CloseNoteInteraction()//move to another script later (UI manager)
+    public void CloseNoteInteraction()
     {
         DisableAllNotes();
         notesPanel.SetActive(false);
-        //PlaySound(noteCloseSound);
-    }
-
-    private void HandlePuzzleInteraction()
-    {
-        // Add puzzle-specific logic here
-        puzzlePanel.SetActive(true);
-        //PlaySound(puzzleOpenSound);
-    }
-    
-    public void ClosePuzzleInteraction()//move to another script later (UI manager)
-    {
-        puzzlePanel.SetActive(false);
-        //PlaySound(puzzleCloseSound);
     }
 
     private void HandleGenericInteraction()
     {
-        // Default interaction behavior
         Debug.Log($"Interacted with {gameObject.name}");
     }
 
-    // Optional: Helper methods for specific interactions
     public void SetInteractionPrompt(string newPrompt)
     {
         interactionPrompt = newPrompt;
@@ -386,7 +404,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
             interactionUIText.text = newPrompt;
     }
 
-    // Debug visualization in Scene view
     private void OnDrawGizmosSelected()
     {
         if (interactionLinkedObject != null)
@@ -396,7 +413,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
             
             if (interactionType == InteractableType.Door)
             {
-                // Draw rotation arc for doors
                 Gizmos.color = Color.green;
                 Vector3 startDirection = interactionLinkedObject.transform.forward;
                 Vector3 endDirection = Quaternion.Euler(rotationAxis * openAngle) * startDirection;
@@ -405,7 +421,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
             }
             else if (interactionType == InteractableType.Drawer)
             {
-                // Draw slide path for drawers
                 Gizmos.color = Color.blue;
                 Vector3 worldSlideDirection = interactionLinkedObject.transform.TransformDirection(slideDirection.normalized);
                 Vector3 slideEnd = interactionLinkedObject.transform.position + worldSlideDirection * slideDistance;
@@ -414,12 +429,4 @@ public class InteractableObject : MonoBehaviour, IInteractable
             }
         }
     }
-
-    // private void PlaySound(AudioClip clip)
-    // {
-    //     if (audioSource != null && clip != null)
-    //     {
-    //         audioSource.PlayOneShot(clip);
-    //     }
-    // }
 }

@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Net.NetworkInformation;
 
 public class LanHostBroadcaster : MonoBehaviour
 {

@@ -1,5 +1,4 @@
 using Unity.Netcode;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : NetworkBehaviour
@@ -19,7 +18,6 @@ public class SceneLoader : NetworkBehaviour
         }
     }
     
-    // NEW SYNTAX: [ServerRpc(RequireOwnership = false)] is now just [ServerRpc]
     // The default behavior is to allow any client to call it
     [ServerRpc]
     public void LoadGameSceneServerRpc()
