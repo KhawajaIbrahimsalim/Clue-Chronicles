@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3609177963431735486}
   - component: {fileID: 2751051450629008195}
+  - component: {fileID: 8074191741647213099}
   - component: {fileID: 8684668297237495203}
   m_Layer: 0
   m_Name: Note_Trigger
@@ -55,6 +56,31 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.77, y: 0.3, z: 0.5}
   m_Center: {x: 0.06, y: 0, z: 0}
+--- !u!114 &8074191741647213099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605734757356281822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 2863328138
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &8684668297237495203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb303e61e50e6d4c8e897d8acf70f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  ShowTopMostFoldoutHeaderGroup: 1
   interactionLinkedObject: {fileID: 0}
   interactionPrompt: read
   interactionType: 2
@@ -83,6 +110,7 @@ MonoBehaviour:
   noteIndex: 0
   puzzlePanel: {fileID: 0}
   interactionUIText: {fileID: 0}
+  IsInteracted: 0
 --- !u!1 &6601253421941665664
 GameObject:
   m_ObjectHideFlags: 0
