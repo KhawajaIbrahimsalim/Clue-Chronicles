@@ -6,6 +6,7 @@ public class PuzzelManager : MonoBehaviour
     private int ActualFingerPrintCode = 3; // Example correct code
 
     [Header("UI Elements")]
+    [SerializeField] private GameObject PuzzleUI;
     [SerializeField] private GameObject FingerPrint_SolvedUI;
     [SerializeField] private GameObject FingerPrint_NotCorrentUI;
 
@@ -17,6 +18,10 @@ public class PuzzelManager : MonoBehaviour
         {
             FingerPrint_SolvedUI.SetActive(true);
             FingerPrint_NotCorrentUI.SetActive(false);
+
+            PuzzleUI.SetActive(false);
+
+            ChapterController.Instance.AdvanceObjective();
         }
         else
         {

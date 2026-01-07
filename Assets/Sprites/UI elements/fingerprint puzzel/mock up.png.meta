@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,381 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: mock up_3
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 1012
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1aef82dcf17bea4abad76ee1c775de2
+      internalID: 2143122729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_4
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 300
+        width: 510
+        height: 714
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebf4113c3156f74c9b4ae59488a7c7e
+      internalID: 1357693172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_9
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 989
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504238d4e5a483d4fa0b133a20729620
+      internalID: -1713978610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_11
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 967
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c085ac11e1df0c44ea87d2cac74ca09f
+      internalID: -1184347944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_12
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 946
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f691a89d2ae87e145865b1d408789a9f
+      internalID: -1798874008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_13
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 923
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38934885d999fe14fa6cd53f92c00e04
+      internalID: 1984307600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_21
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 805
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66da319b6c8a5f4e921b1d42ae7bbc8
+      internalID: -875582829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_23
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 786
+        width: 24
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d423286f6bd34fa40b4701664dc7dfe6
+      internalID: -1294890413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_25
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 696
+        width: 36
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94bb1e598969df489b21446957a70f0
+      internalID: 1879399494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_26
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 657
+        width: 24
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c31f8e8e6044d429611e2455e40cdd
+      internalID: -1346317485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_27
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 598
+        width: 24
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41fb94291a68a4f479e4d77966beb772
+      internalID: -701778792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_28
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 30
+        width: 241
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a9197b381e777943af48a3d7a48b3f2
+      internalID: -880636904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_29
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 30
+        width: 240
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc30d20a571b2c542a573bb2a185bf1f
+      internalID: 1296603473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_30
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 30
+        width: 237
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a503e0d9a98947749b647e5b35c4af9e
+      internalID: 753391950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_31
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 30
+        width: 237
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7918ca6f364cc8439dbc82a78be5e4a
+      internalID: -1638057227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_32
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 30
+        width: 237
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82507b882a395004fb1f3329d1558a0d
+      internalID: -34036764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mock up_33
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 40
+        width: 237
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2fed7737faee54e9ff83a2ff3bb18c
+      internalID: 291766221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -121,8 +495,45 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      mock up_0: -92238473
+      mock up_1: -1365143232
+      mock up_10: -1060749472
+      mock up_11: -1184347944
+      mock up_12: -1798874008
+      mock up_13: 1984307600
+      mock up_14: -493971129
+      mock up_15: 1555143306
+      mock up_16: 1801532868
+      mock up_17: -746000188
+      mock up_18: -2065975120
+      mock up_19: -1011923122
+      mock up_2: -1667006796
+      mock up_20: -1884460937
+      mock up_21: -875582829
+      mock up_22: 119120989
+      mock up_23: -1294890413
+      mock up_24: -1743896607
+      mock up_25: 1879399494
+      mock up_26: -1346317485
+      mock up_27: -701778792
+      mock up_28: -880636904
+      mock up_29: 1296603473
+      mock up_3: 2143122729
+      mock up_30: 753391950
+      mock up_31: -1638057227
+      mock up_32: -34036764
+      mock up_33: 291766221
+      mock up_34: -1568975042
+      mock up_4: 1357693172
+      mock up_5: -1040047780
+      mock up_6: -375301598
+      mock up_7: -1254435666
+      mock up_8: -1709868985
+      mock up_9: -1713978610
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

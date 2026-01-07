@@ -37,6 +37,11 @@ public class ChapterController : MonoBehaviour
     public void AdvanceObjective()
     {
         Objectiveindex++;
+
+        if (Objectiveindex < chapters[CurrentChapterIndex].ObjectiveCount)
+        {
+            ObjectiveText.text = chapters[CurrentChapterIndex].ObjectivesDescriptions[Objectiveindex];
+        }
         if (Objectiveindex >= chapters[CurrentChapterIndex].ObjectiveCount)
         {
             AdvanceChapter();
