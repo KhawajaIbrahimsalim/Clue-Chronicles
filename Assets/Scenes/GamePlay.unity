@@ -1326,7 +1326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &92878296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3429,7 +3429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7afbd3b5534b114ea9c103f3d7bf1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoleBasedUI
-  uiRole: 2
 --- !u!1001 &359499342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4294,14 +4293,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433614027}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000059005583, y: -0.7071069, z: 0.000000059005597, w: 0.7071067}
+  m_LocalRotation: {x: -0.25203332, y: 0.067467384, z: 0.032036938, w: -0.9648322}
   m_LocalPosition: {x: -249.964, y: 2.754, z: -1.469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1730110256}
   m_Father: {fileID: 312996836}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.817, y: -369.615, z: -6.279}
 --- !u!114 &433614029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4320,7 +4319,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 20
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1977817641}
+  m_LookAt: {fileID: 619716249}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
@@ -4377,6 +4376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c983d266cbc9b3b45be7927179a2a55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuzzelManager
+  PuzzleUI: {fileID: 0}
   FingerPrint_SolvedUI: {fileID: 163696885}
   FingerPrint_NotCorrentUI: {fileID: 2093386663}
 --- !u!1 &451115552
@@ -6026,7 +6026,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &607355813
 RectTransform:
@@ -6158,7 +6158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &639047902
 Transform:
   m_ObjectHideFlags: 0
@@ -10328,7 +10328,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 30
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -10359,8 +10359,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120140968}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18732318, y: -0.78984797, z: -0.1347642, w: -0.5682331}
-  m_LocalPosition: {x: 52.54295, y: -6.6923704, z: 9.9469795}
+  m_LocalRotation: {x: -0.2925084, y: 0.9204456, z: -0.25750142, w: -0.03019497}
+  m_LocalPosition: {x: 208.25821, y: 73.05698, z: -15.2033615}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12788,7 +12788,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: field of view
-      value: 40
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: far clip plane
@@ -12812,31 +12812,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -76.1
+      value: -249.964
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.425
+      value: 2.754
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.300001
+      value: -1.469
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: -0.9648322
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.25203323
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0.067467384
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.032036927
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -13499,7 +13499,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1730110256}
   - component: {fileID: 1730110259}
-  - component: {fileID: 1730110258}
   - component: {fileID: 1730110257}
   m_Layer: 0
   m_Name: cm
@@ -13540,30 +13539,6 @@ MonoBehaviour:
   m_AmplitudeGain: 0.5
   m_FrequencyGain: 0.3
   mNoiseOffsets: {x: -451.37964, y: 684.7062, z: 648.0488}
---- !u!114 &1730110258
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730110255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Cinemachine::Cinemachine.Cinemachine3rdPersonFollow
-  Damping: {x: 0.1, y: 0.25, z: 0.3}
-  ShoulderOffset: {x: 1, y: 0, z: 0}
-  VerticalArmLength: 0
-  CameraSide: 0.6
-  CameraDistance: 4
-  CameraCollisionFilter:
-    serializedVersion: 2
-    m_Bits: 1
-  IgnoreTag: Player
-  CameraRadius: 0.15
-  DampingIntoCollision: 0
-  DampingFromCollision: 0
 --- !u!114 &1730110259
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -15637,7 +15612,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2000
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!224 &2054059848
 RectTransform:
